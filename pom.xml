@@ -7,6 +7,64 @@
     <groupId>com.source</groupId>
     <artifactId>spring</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>source-spring</name>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Edgware.RELEASE</spring-cloud.version>
+        <druid.version>1.1.8</druid.version>
+        <mybatis.springboot.version>1.3.1</mybatis.springboot.version>
+        <fastjson.version>1.2.44</fastjson.version>
+        <common.long.version>3.7</common.long.version>
+        <common.collect.version>3.2.2</common.collect.version>
+        <mybatis.version>1.3.1</mybatis.version>
+        <testng.version>6.8.13</testng.version>
+    </properties>
+
+    <dependencies>
+        <!-- 引入公用的eureka -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>${common.collect.version}</version>
+        </dependency>
+        <!-- 引入lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
